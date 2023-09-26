@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: sksamailali/test:24
+        image: sksamailali/test:224
         ports:
         - containerPort: 8080

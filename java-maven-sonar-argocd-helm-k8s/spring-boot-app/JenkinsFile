@@ -24,7 +24,7 @@ pipeline {
         SONAR_URL = "http://3.83.253.62:9000"
       }
       steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+        withCredentials([string(credentialsId: 'samail_sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
@@ -51,7 +51,7 @@ pipeline {
             GIT_USER_NAME = "sksamailali"
         }
         steps {
-            withCredentials([string(credentialsId: 'samail_github', variable: 'GITHUB_TOKEN')]) {
+            withCredentials([string(credentialsId: 'samail_gihub', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email "sksamailali70@gmail.com"
                     git config user.name "sksamailali"
